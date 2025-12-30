@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>InnoTech Energy | SEQ Energy Storage Experts</title>
+    <meta name="description" content="Premium solar battery installation across South East Queensland. Featuring Tesla, Ecoflow, Midea, and more.">
+    
+    <style>
+        :root {
+            --bg-dark: #05070a;
+            --card-inner: #0d1117;
+            --brand-cyan: #00d2ff;
+            --brand-gold: #ffcc00;
+            --neon-pink: #ff007f;
+            --star-color: #ffcc00;
+            /* Brand Identity Colors */
+            --tesla: #ff3b30; --ecoflow: #34c759; --midea: #007aff;
+            --hyxi: #af52de; --neovolt: #ff9d00; --growatt: #30b0c7;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            margin: 0; padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: white;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* --- 1. Header Section --- */
+        .logo-header {
+            padding: 50px 20px 10px;
+            text-align: center;
+            background: linear-gradient(to bottom, #0a0e14, transparent);
+        }
+        .main-logo {
+            width: 140px; height: auto;
+            filter: drop-shadow(0 0 8px var(--brand-cyan));
+            animation: breathe 3s ease-in-out infinite;
+        }
+        @keyframes breathe {
+            0%, 100% { opacity: 0.9; transform: scale(1); filter: drop-shadow(0 0 5px var(--brand-cyan)); }
+            50% { opacity: 1; transform: scale(1.03); filter: drop-shadow(0 0 15px var(--brand-cyan)); }
+        }
+        .textured-slogan {
+            font-size: 16px; letter-spacing: 6px; font-weight: 300;
+            margin: 25px 0 8px; text-transform: uppercase;
+            background: linear-gradient(to bottom, #ffffff 0%, #666666 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .textured-region {
+            color: var(--brand-cyan); font-size: 11px; margin: 0;
+            letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+        }
+
+        /* --- 2. Responsive Grid --- */
+        .stack-container {
+            display: grid; grid-template-columns: 1fr; gap: 30px;
+            padding: 40px 20px; justify-items: center; max-width: 1200px; margin: 0 auto;
+        }
+        @media (min-width: 1024px) { .stack-container { grid-template-columns: repeat(3, 1fr); gap: 40px; } }
+        @media (min-width: 768px) and (max-width: 1023px) { .stack-container { grid-template-columns: repeat(2, 1fr); } }
+
+        /* --- 3. Tech Card Design --- */
+        .tech-card {
+            position: relative; width: 100%; max-width: 360px; height: 480px;
+            background: radial-gradient(circle at center, #1a202c 0%, #0a0e14 100%);
+            border-radius: 28px; overflow: hidden; opacity: 0; transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1); cursor: pointer;
+        }
+        .tech-card.is-visible { opacity: 1; transform: translateY(0); }
+        .tech-card::before {
+            content: ''; position: absolute; width: 150%; height: 150%; top: -25%; left: -25%;
+            background: conic-gradient(transparent, var(--brand-color), transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
+        .tech-card::after { content: ''; position: absolute; inset: 2px; background: var(--card-inner); border-radius: 26px; z-index: 1; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .card-content { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 35px; box-sizing: border-box;}
+        .brand-name { font-size: 20px; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 15px var(--brand-color); text-transform: uppercase; text-align: center; line-height: 1.2;}
+        .img-box { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; }
+        .img-box img { max-width: 85%; max-height: 100%; object-fit: contain; }
+        
+        .view-spec-btn {
+            font-size: 10px; letter-spacing: 1.5px; color: #888; border: 1px solid #333;
+            padding: 8px 20px; border-radius: 20px; text-transform: uppercase;
+            transition: 0.3s; background: rgba(255,255,255,0.03);
+        }
+        .tech-card:hover .view-spec-btn { border-color: var(--brand-color); color: #fff; box-shadow: 0 0 15px var(--brand-color); }
+
+        .tesla { --brand-color: var(--tesla); } .ecoflow { --brand-color: var(--ecoflow); }
+        .midea { --brand-color: var(--midea); } .hyxi { --brand-color: var(--hyxi); }
+        .neovolt { --brand-color: var(--neovolt); } .growatt { --brand-color: var(--growatt); }
+
+        /* --- 4. Leads Section --- */
+        .section-box { padding: 60px 20px; max-width: 550px; margin: 0 auto; text-align: center; }
+        .form-card { background: #0d1117; border: 1px solid #222; padding: 35px; border-radius: 24px; }
+        .form-input { width: 100%; padding: 15px; margin-bottom: 12px; background: #05070a; border: 1px solid #333; border-radius: 10px; color: #fff; box-sizing: border-box; font-size: 16px;}
+        .btn-main { width: 100%; padding: 18px; background: var(--brand-cyan); border: none; border-radius: 12px; font-weight: bold; color: #000; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- 5. Footer & Contact --- */
+        footer { padding: 60px 20px; text-align: center; background: #020305; border-top: 1px solid #111; }
+        .neon-phone-icon {
+            display: inline-flex; align-items: center; justify-content: center; width: 55px; height: 55px; border-radius: 50%;
+            border: 2px solid var(--neon-pink); color: var(--neon-pink); box-shadow: 0 0 15px var(--neon-pink);
+            animation: neon-pulse 2s infinite; margin-bottom: 20px;
+        }
+        @keyframes neon-pulse { 0%, 100% { box-shadow: 0 0 15px var(--neon-pink); opacity: 1; } 50% { box-shadow: 0 0 30px var(--neon-pink); opacity: 0.7; } }
+
+        /* --- 6. Modal System --- */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: 0.3s; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { width: 90%; max-width: 400px; background: #161b22; border: 2px solid var(--modal-border); border-radius: 30px; padding: 40px; box-sizing: border-box; }
+        .rating-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #222; }
+        .stars-container { color: var(--brand-gold); font-size: 18px; letter-spacing: 3px; }
+        .star-empty { color: #333; }
+    </style>
+</head>
+<body>
+
+    <header class="logo-header">
+        <img src="logo.png" alt="InnoTech Energy" class="main-logo">
+        <h2 class="textured-slogan">Energy Storage Experts</h2>
+        <p class="textured-region">Serving South East Queensland</p>
+    </header>
+
+    <div class="stack-container">
+        <div class="tech-card tesla" onclick="openRatingModal('Tesla Powerwall', 3, 5, 2.5, 5, 'var(--tesla)')">
+            <div class="card-content">
+                <div class="brand-name">Tesla<br><small style="font-size:12px;opacity:0.6">Powerwall</small></div>
+                <div class="img-box"><img src="tesla.png" alt="Tesla"></div>
+                <div class="view-spec-btn">Expert Review</div>
+            </div>
+        </div>
+
+        <div class="tech-card ecoflow" onclick="openRatingModal('Ecoflow PowerOcean', 4.5, 5, 5, 5, 'var(--ecoflow)')">
+            <div class="card-content">
+                <div class="brand-name">Ecoflow<br><small style="font-size:12px;opacity:0.6">PowerOcean</small></div>
+                <div class="img-box"><img src="ecoflow.png" alt="Ecoflow"></div>
+                <div class="view-spec-btn">Expert Review</div>
+            </div>
+        </div>
+
+        <div class="tech-card midea" onclick="openRatingModal('Midea Hiconics', 5, 4, 4, 4.5, 'var(--midea)')">
+            <div class="card-content">
+                <div class="brand-name">Midea<br><small style="font-size:12px;opacity:0.6">Hiconics</small></div>
+                <div class="img-box"><img src="midea.png" alt="Midea"></div>
+                <div class="view-spec-btn">Expert Review</div>
+            </div>
+        </div>
+
+        <div class="tech-card hyxi" onclick="openRatingModal('HyxiPower', 5, 3.5, 4.5, 5, 'var(--hyxi)')">
+            <div class="card-content">
+                <div class="brand-name">HyxiPower</div>
+                <div class="img-box"><img src="hyxi.png" alt="HyxiPower"></div>
+                <div class="view-spec-btn">Expert Review</div>
+            </div>
+        </div>
+
+        <div class="tech-card neovolt" onclick="openRatingModal('Neovolt', 4.5, 4.5, 3.5, 4, 'var(--neovolt)')">
+            <div class="card-content">
+                <div class="brand-name">Neovolt</div>
+                <div class="img-box"><img src="neovolt.png" alt="Neovolt"></div>
+                <div class="view-spec-btn">Expert Review</div>
+            </div>
+        </div>
+
+        <div class="tech-card growatt" onclick="openRatingModal('Growatt', 5, 3, 5, 4, 'var(--growatt)')">
+            <div class="card-content">
+                <div class="brand-name">Growatt</div>
+                <div class="img-box"><img src="growatt.png" alt="Growatt"></div>
+                <div class="view-spec-btn">Expert Review</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-box">
+        <h2 style="color: var(--brand-cyan); letter-spacing: 2px;">SEQ HOUSE GIVEAWAY</h2>
+        <p style="color: #666; font-size: 14px; margin-bottom: 25px;">Get a free assessment and win a professional flashlight.</p>
+        <div class="form-card">
+            <form action="https://formspree.io/f/mojqrban" method="POST">
+                <input type="text" name="Full Name" class="form-input" placeholder="Full Name" required>
+                <input type="tel" name="Phone Number" class="form-input" placeholder="Phone Number" required>
+                <input type="email" name="_replyto" class="form-input" placeholder="Email Address" required>
+                <input type="text" name="Address" class="form-input" placeholder="Property Address in SEQ" required>
+                <button type="submit" class="btn-main">Get Free Assessment</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="neon-phone-icon">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.82 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <p style="font-size: 26px; font-weight: bold; color: var(--neon-pink); margin-bottom: 10px;">
+            <a href="tel:0421373777" style="color: inherit; text-decoration: none;">0421 373 777</a>
+        </p>
+        <p style="color: #444; font-size: 13px; letter-spacing: 1px; margin-bottom: 30px;">BRISBANE | GOLD COAST | SUNSHINE COAST</p>
+        
+        <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
+            <a href="https://www.facebook.com/search/top/?q=0421373777" target="_blank" style="color: #444; transition: 0.3s;" onmouseover="this.style.color='#1877F2'; this.style.filter='drop-shadow(0 0 8px #1877F2)'" onmouseout="this.style.color='#444'">
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.387H7.078v-3.467h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.467h-2.796v8.387C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://wa.me/61421373777" target="_blank" style="color: #444; transition: 0.3s;" onmouseover="this.style.color='#25D366'; this.style.filter='drop-shadow(0 0 8px #25D366)'" onmouseout="this.style.color='#444'">
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .004 5.408 0 12.044c0 2.123.554 4.197 1.608 6.02L0 24l6.132-1.608a11.845 11.845 0 005.918 1.57h.005c6.637 0 12.048-5.409 12.049-12.044.001-3.218-1.251-6.243-3.522-8.514z"/></svg>
+            </a>
+        </div>
+        <p style="font-size: 10px; color: #222;">© 2025 InnoTech Energy Storage. SEQ Specialist.</p>
+    </footer>
+
+    <div class="modal-overlay" id="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()" id="mContent">
+            <h2 id="mTitle" style="text-align:center; margin-top:0; color:#fff; font-size: 18px; letter-spacing: 2px;"></h2>
+            <div class="rating-row"><span>Price</span><div class="stars-container" id="star-price"></div></div>
+            <div class="rating-row"><span>Design</span><div class="stars-container" id="star-design"></div></div>
+            <div class="rating-row"><span>Modularity</span><div class="stars-container" id="star-mod"></div></div>
+            <div class="rating-row"><span>Warranty</span><div class="stars-container" id="star-warranty"></div></div>
+            <button style="width:100%; padding:18px; background:#222; border:none; border-radius:12px; font-weight:bold; color:#fff; cursor:pointer; margin-top:25px;" onclick="closeModal()">CLOSE REVIEW</button>
+        </div>
+    </div>
+
+    <script>
+        // Reveal animation on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('is-visible') });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.tech-card').forEach(c => observer.observe(c));
+
+        // Half-Star Star Generator
+        function getStarsHTML(rating) {
+            let html = '';
+            for (let i = 1; i <= 5; i++) {
+                if (rating >= i) {
+                    html += '★';
+                } else if (rating >= i - 0.5) {
+                    html += '<span style="background: linear-gradient(90deg, var(--brand-gold) 50%, #333 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">★</span>';
+                } else {
+                    html += '<span class="star-empty">★</span>';
+                }
+            }
+            return html;
+        }
+
+        // Modal Logic
+        function openRatingModal(name, r1, r2, r3, r4, color) {
+            document.getElementById('mTitle').innerText = name;
+            document.getElementById('star-price').innerHTML = getStarsHTML(r1);
+            document.getElementById('star-design').innerHTML = getStarsHTML(r2);
+            document.getElementById('star-mod').innerHTML = getStarsHTML(r3);
+            document.getElementById('star-warranty').innerHTML = getStarsHTML(r4);
+            document.getElementById('mContent').style.setProperty('--modal-border', color);
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() { document.getElementById('modal').classList.remove('active'); }
+    </script>
+</body>
+</html>
